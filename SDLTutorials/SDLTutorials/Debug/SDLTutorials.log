@@ -1,4 +1,4 @@
-﻿Build started 25/05/2012 12:11:59 AM.
+﻿Build started 27/05/2012 12:26:27 AM.
      1>Project "C:\cygwin\home\Erin Turnbull\Joel-Repo\SDL-tutorial\SDLTutorials\SDLTutorials\SDLTutorials.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\SDLTutorials.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -18,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.56
+Time Elapsed 00:00:06.78
