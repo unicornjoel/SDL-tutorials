@@ -1,5 +1,6 @@
 //Include the SDL functions and datatypes
 #include "SDL.h"
+#include "SDL_image.h"
 #include <string>
 
 //Attributes for the screen
@@ -9,7 +10,6 @@ const int SCREEN_BPP = 32;
 
 //Surfaces to be used in the program
 SDL_Surface *message = NULL;
-SDL_Surface *background = NULL;
 SDL_Surface *screen = NULL;
 
 SDL_Surface *load_image( std::string filename )
@@ -21,7 +21,7 @@ SDL_Surface *load_image( std::string filename )
 	SDL_Surface *optimizedImage = NULL;
 
 	//Load the image
-	loadedImage = SDL_LoadBMP( filename.c_str() );
+	loadedImage = IMG_Load( filename.c_str() );
 
 	//If nothing went wrong
 	if( loadedImage != NULL )
@@ -70,20 +70,14 @@ int main( int argc, char* args[] )
 	}
 
 	//Set window caption
-	SDL_WM_SetCaption( "Hello World!", NULL );
+	SDL_WM_SetCaption( "Different image formats!", NULL );
 
 	//Load images
-	message = load_image( "hello.bmp" );
-	background = load_image( "background.bmp" );
+	message = load_image( "look.png" );
 
-	//Apply the background to the screen
-	apply_surface( 0, 0, background, screen );
-	apply_surface( 320, 0, background, screen );
-	apply_surface( 0, 240, background, screen );
-	apply_surface( 320, 240, background, screen );
 
 	//Apply the message to the screen
-	apply_surface( 180, 140, message, screen );
+	apply_surface( 0, 0, message, screen );
 
 	//Update screen
 	if( SDL_Flip ( screen ) == -1 )
@@ -96,7 +90,6 @@ int main( int argc, char* args[] )
 
 	//Free the surfaces
 	SDL_FreeSurface ( message );
-	SDL_FreeSurface ( background );
 
     //Quit SDL
     SDL_Quit();
