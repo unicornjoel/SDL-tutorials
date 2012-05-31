@@ -9,8 +9,11 @@ const int SCREEN_HEIGHT = 480;
 const int SCREEN_BPP = 32;
 
 //Surfaces to be used in the program
-SDL_Surface *message = NULL;
+SDL_Surface *image = NULL;
 SDL_Surface *screen = NULL;
+
+//The event structure that will be used
+SDL_Event sevent;
 
 SDL_Surface *load_image( std::string filename )
 {
@@ -50,14 +53,12 @@ void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination)
 	SDL_BlitSurface( source, NULL, destination, &offset );
 }
 
-
-int main( int argc, char* args[] )
+bool init()
 {
-
-	//Initialize all SDL subsystems
-    if( SDL_Init ( SDL_INIT_EVERYTHING ) == -1 )
+	//Initializes all SDL subsystems
+	if( SDL_Init ( SDL_INIT_EVERYTHING ) == -1 )
 	{
-		return 1;
+		return false;
 	}
 
 	//Set up the screen
@@ -66,18 +67,59 @@ int main( int argc, char* args[] )
 	//If there was an error in setting up the screen
 	if( screen==NULL )
 	{
-		return 1;
+		return false;
 	}
 
 	//Set window caption
-	SDL_WM_SetCaption( "Different image formats!", NULL );
+	SDL_WM_SetCaption( "Event test", NULL );
 
-	//Load images
-	message = load_image( "look.png" );
+	//If everything initialized fine
+	return true;
+}
 
+bool load_files()
+{
+	//Load the image
+	image = load_image( "x.png" );
 
-	//Apply the message to the screen
-	apply_surface( 0, 0, message, screen );
+	//If there was an error loading the files
+	if( image == NULL )
+	{
+		return false;
+	}
+
+	//If everything loaded fine
+	return true;
+}
+
+void clean_up()
+{
+	//Free the image
+	SDL_FreeSurface( image );
+
+	//Quit SDL
+	SDL_Quit();
+}
+
+int main( int argc, char* args[] )
+{
+	//Make sure the program waits for a quit
+	bool quit = false;
+
+	//Initialize
+	if( init() == false )
+	{
+		return 1;
+	}
+
+	//Load the files
+	if( load_files() == false )
+	{
+		return 1;
+	}
+
+	//Apply the surface to the screen
+	apply_surface( 0, 0, image, screen );
 
 	//Update screen
 	if( SDL_Flip ( screen ) == -1 )
@@ -85,14 +127,23 @@ int main( int argc, char* args[] )
 		return 1;
 	}
 
-	//Wait 2 seconds
-	SDL_Delay ( 2000 );
+	//While the user hasn't quit
+	while( quit == false )
+	{
+		//While there's an event to handle
+		while( SDL_PollEvent( &sevent ) )
+		{
+			//If the user has Xed out the window
+			if( sevent.type == SDL_QUIT )
+			{
+				//Quit the program
+				quit = true;
+			}
+		}
+	}
 
-	//Free the surfaces
-	SDL_FreeSurface ( message );
+	//Free the surface and quit SDL
+	clean_up();
 
-    //Quit SDL
-    SDL_Quit();
-    
-    return 0;    
+	return 0;
 }
