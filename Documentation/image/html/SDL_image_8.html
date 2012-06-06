@@ -1,0 +1,89 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_image 1.2.8: IMG_Init</TITLE>
+
+<META NAME="description" CONTENT="SDL_image 1.2.8: IMG_Init">
+<META NAME="keywords" CONTENT="SDL_image 1.2.8: IMG_Init">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC8"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_7.html#SEC7"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_9.html#SEC9"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_9.html#SEC9"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_6.html#SEC6"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_10.html#SEC10"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_47.html#SEC47">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.1.2 IMG_Init </H3>
+<!--docid::SEC8::-->
+<P>
+
+<CODE>int <B>IMG_Init</B>(int <VAR>flags</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>flags</VAR>
+<DD>bitwise OR'd set of image formats to support by loading a library now.  The values you may OR together to pass in are:<BR>
+<B>IMG_INIT_JPG</B><BR>
+<B>IMG_INIT_PNG</B><BR>
+<B>IMG_INIT_TIF</B>
+</DL>
+<P>
+
+Initialize by loading support as indicated by the <VAR>flags</VAR>, or at least return success if support is already loaded.  You may call this multiple times, which will actually require you to call <CODE>IMG_Quit</CODE> just once to clean up.  You may call this function with a 0 to retrieve whether support was built-in or not loaded yet.<BR>
+<B>Note</B>: to load JPG, PNG, and/or TIF images you can call <CODE>IMG_Init</CODE> with the right <B>IMG_INIT_*</B> flags OR'd together before you program gets busy, to prevent a later hiccup while it loads the library, and to check that you do have the support that you need before you try and use it.<BR>
+<B>Note</B>: No initialization is needed nor performed when using the <CODE>IMG_isJPG</CODE>, <CODE>IMG_isPNG</CODE>, and <CODE>IMG_isTIF</CODE> functions.<BR>
+<B>Note</B>: this function does <I>not</I> always set the error string, so do not depend on <CODE>IMG_GetError</CODE> being meaningful all the time.
+</P><P>
+
+<B>Returns</B>: a bitmask of all the currently initted image loaders.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// load support for the JPG and PNG image formats
+int flags=IMG_INIT_JPG|IMG_INIT_PNG;
+int initted=IMG_Init(flags);
+if(initted&#38;flags != flags) {
+    printf("IMG_Init: Failed to init required jpg and png support!\n");
+    printf("IMG_Init: %s\n", IMG_GetError());
+    // handle error
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_image_9.html#SEC9">3.1.3 IMG_Quit</A>
+</P><P>
+
+<A NAME="IMG_Quit"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

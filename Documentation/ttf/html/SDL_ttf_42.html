@@ -1,0 +1,133 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: Render</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: Render">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: Render">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC42"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_41.html#SEC41"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_43.html#SEC43"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_5.html#SEC5"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_5.html#SEC5"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_55.html#SEC55"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 3.4 Render </H2>
+<!--docid::SEC42::-->
+<P>
+
+These functions render text using a <CODE>TTF_Font</CODE>.<BR>
+There are three modes of rendering:<BR>
+<DL COMPACT>
+<DT><EM>Solid</EM>
+<DD><B>Quick and Dirty</B><BR>
+Create an 8-bit palettized surface and render the given text at
+fast quality with the given font and color.  The pixel value of 0 is the
+colorkey, giving a transparent background when blitted.
+Pixel and colormap value 1 is set to the text foreground color.
+This allows you to change the color without having to render the text again.
+Palette index 0 is of course not drawn when blitted to another surface, since it
+is the colorkey, and thus transparent, though its actual color is 255 minus
+each of the RGB components of the foreground color.
+This is the fastest rendering speed of all the rendering modes.
+This results in no box around the text, but the text is not as smooth.
+The resulting surface should blit faster than the Blended one.
+Use this mode for FPS and other fast changing updating text displays.
+<DT><EM>Shaded</EM>
+<DD><B>Slow and Nice, but with a Solid Box</B><BR>
+Create an 8-bit palettized surface and render the given text at
+high quality with the given font and colors.  The 0 pixel value is background,
+while other pixels have varying degrees of the foreground color from the
+background color.
+This results in a box of the background color around the text in the foreground color.
+The text is antialiased.
+This will render slower than Solid, but in about the same time as Blended mode.
+The resulting surface should blit as fast as Solid, once it is made.
+Use this when you need nice text, and can live with a box.
+<DT><EM>Blended</EM>
+<DD><B>Slow Slow Slow, but Ultra Nice over another image</B><BR>
+Create a 32-bit ARGB surface and render the given text at high quality,
+using alpha blending to dither the font with the given color.
+This results in a surface with alpha transparency,
+so you don't have a solid colored box around the text.
+The text is antialiased.
+This will render slower than Solid, but in about the same time as Shaded mode.
+The resulting surface will blit slower than if you had used Solid or Shaded.
+Use this when you want high quality, and the text isn't changing too fast.
+</DL>
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+</TABLE>
+<B>Solid</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_43.html#SEC43">3.4.1 TTF_RenderText_Solid</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw LATIN1 text in solid mode</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_44.html#SEC44">3.4.2 TTF_RenderUTF8_Solid</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw UTF8 text in solid mode</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_45.html#SEC45">3.4.3 TTF_RenderUNICODE_Solid</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw UNICODE text in solid mode</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_46.html#SEC46">3.4.4 TTF_RenderGlyph_Solid</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw a UNICODE glyph in solid mode</TD></TR>
+</TABLE>
+<B>Shaded</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_47.html#SEC47">3.4.5 TTF_RenderText_Shaded</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw LATIN1 text in shaded mode</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_48.html#SEC48">3.4.6 TTF_RenderUTF8_Shaded</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw UTF8 text in shaded mode</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_49.html#SEC49">3.4.7 TTF_RenderUNICODE_Shaded</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw UNICODE text in shaded mode</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_50.html#SEC50">3.4.8 TTF_RenderGlyph_Shaded</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw a UNICODE glyph in shaded mode</TD></TR>
+</TABLE>
+<B>Blended</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_51.html#SEC51">3.4.9 TTF_RenderText_Blended</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw LATIN1 text in blended mode</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_52.html#SEC52">3.4.10 TTF_RenderUTF8_Blended</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw UTF8 text in blended mode</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_53.html#SEC53">3.4.11 TTF_RenderUNICODE_Blended</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw UNICODE text in blended mode</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_ttf_54.html#SEC54">3.4.12 TTF_RenderGlyph_Blended</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Draw a UNICODE glyph in blended mode</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="TTF_RenderText_Solid"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_41.html#SEC41"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_43.html#SEC43"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_5.html#SEC5"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_5.html#SEC5"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_55.html#SEC55"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

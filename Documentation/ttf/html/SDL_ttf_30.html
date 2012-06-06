@@ -1,0 +1,88 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: TTF_FontAscent</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: TTF_FontAscent">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: TTF_FontAscent">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC30"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_29.html#SEC29"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_31.html#SEC31"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_21.html#SEC21"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_19.html#SEC19"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_42.html#SEC42"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.11 TTF_FontAscent </H3>
+<!--docid::SEC30::-->
+<P>
+
+<CODE>int <B>TTF_FontAscent</B>(const TTF_Font *<VAR>font</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>font</VAR>
+<DD>The loaded font to get the ascent (height above baseline) of.
+</DL>
+<P>
+
+Get the maximum pixel ascent of all glyphs of the loaded <VAR>font</VAR>.
+This can also be interpreted as the distance from the top of the font to the baseline.<BR>
+It could be used when drawing an individual glyph relative to a top point, by combining it with the glyph's maxy metric to resolve the top of the rectangle used when blitting the glyph on the screen.<BR>
+<BR>
+<CODE>rect.y = top + TTF_FontAscent(font) - glyph_metric.maxy;</CODE><BR>
+<BR>
+<B>NOTE</B>: Passing a <B>NULL</B> <VAR>font</VAR> into this function will cause a segfault.
+</P><P>
+
+<B>Returns</B>: The maximum pixel ascent of all glyphs in the font.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// get the loaded font's max ascent
+//TTF_Font *font;
+
+printf("The font ascent is: %d\n", TTF_FontAscent(font));
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_ttf_29.html#SEC29">3.3.10 TTF_FontHeight</A>,<BR>
+<A HREF="SDL_ttf_31.html#SEC31">3.3.12 TTF_FontDescent</A>,<BR>
+<A HREF="SDL_ttf_32.html#SEC32">3.3.13 TTF_FontLineSkip</A>,<BR>
+<A HREF="SDL_ttf_38.html#SEC38">3.3.19 TTF_GlyphMetrics</A>
+</P><P>
+
+<A NAME="TTF_FontDescent"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

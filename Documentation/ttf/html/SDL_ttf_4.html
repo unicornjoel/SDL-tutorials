@@ -1,0 +1,74 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: Compiling</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: Compiling">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: Compiling">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC4"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_3.html#SEC3"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_5.html#SEC5"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_2.html#SEC2"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_2.html#SEC2"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_5.html#SEC5"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 2.2 Compiling </H2>
+<!--docid::SEC4::-->
+<P>
+
+To link with SDL_ttf you should use sdl-config to get the required SDL
+compilation options.  After that, compiling with SDL_ttf is quite easy.<BR>
+<B>Note</B>: Some systems may not have the SDL_ttf library and include file in the same place as the SDL library and includes are located, in that case you will need to add more -I and -L paths to these command lines.  All examples are gcc and perhaps UNIX specific, but adaptable to many compilers and Operating Systems.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+Simple Example for compiling to an object file:
+</P><P>
+
+<CODE>  gcc -c `sdl-config --cflags` mysource.c</CODE>
+</P><P>
+
+Simple Example for linking an executable (Unix style has no .exe):
+</P><P>
+
+<CODE>  gcc -o myprogram mysource.o `sdl-config --libs` -lSDL_ttf</CODE>
+</td></tr></table></P><P>
+
+Now <CODE>myprogram</CODE> is ready to run.
+</P><P>
+
+<A NAME="Functions"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

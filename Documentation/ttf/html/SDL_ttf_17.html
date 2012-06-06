@@ -1,0 +1,97 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: TTF_OpenFontIndexRW</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: TTF_OpenFontIndexRW">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: TTF_OpenFontIndexRW">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC17"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_16.html#SEC16"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_18.html#SEC18"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_18.html#SEC18"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_13.html#SEC13"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_19.html#SEC19"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.2.4 TTF_OpenFontIndexRW </H3>
+<!--docid::SEC17::-->
+<P>
+
+<CODE>TTF_Font *<B>TTF_OpenFontIndexRW</B>(SDL_RWops *<VAR>src</VAR>, int <VAR>freesrc</VAR>, int <VAR>ptsize</VAR>, long <VAR>index</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>src</VAR>
+<DD>The source SDL_RWops as a pointer.  The font is loaded from this.
+<DT><VAR>freesrc</VAR>
+<DD>A non-zero value means it will automatically close and free the <VAR>src</VAR> for you after it finishes using the <VAR>src</VAR>, even if a noncritical error occured.
+<DT><VAR>ptsize</VAR>
+<DD>Point size (based on 72DPI) to load font as.
+This basically translates to pixel height.
+<DT><VAR>index</VAR>
+<DD>Choose a font face from a file containing multiple font faces.
+The first face is always index 0.
+</DL>
+<P>
+
+Load <VAR>src</VAR>, face <VAR>index</VAR>, for use as a font, at <VAR>ptsize</VAR> size.
+This can load TTF and FON formats.<BR>
+Using <CODE>SDL_RWops</CODE> is not covered here, but they enable you to load from almost any source.<BR>
+<BR>
+<B>NOTE</B>: <VAR>src</VAR> is not checked for <B>NULL</B>, so be careful.
+</P><P>
+
+<B>Returns</B>: a pointer to the font as a <CODE>TTF_Font</CODE>.  <B>NULL</B> is returned on errors.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// load font.ttf, face 0, at size 16 into font
+TTF_Font *font;
+font=TTF_OpenFontRW(SDL_RWFromFile("font.ttf"), 1, 16, 0);
+if(!font) {
+    printf("TTF_OpenFontIndexRW: %s\n", TTF_GetError());
+    // handle error
+}
+</pre></td></tr></table></td></tr></table>Note that this is unsafe because we don't check the validity of the <CODE>SDL_RWFromFile</CODE>'s returned pointer.
+</P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_ttf_16.html#SEC16">3.2.3 TTF_OpenFontIndex</A>,
+<A HREF="SDL_ttf_15.html#SEC15">3.2.2 TTF_OpenFontRW</A>,
+<A HREF="SDL_ttf_18.html#SEC18">3.2.5 TTF_CloseFont</A>
+</P><P>
+
+<A NAME="TTF_CloseFont"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,95 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: TTF_SetFontStyle</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: TTF_SetFontStyle">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: TTF_SetFontStyle">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC22"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_21.html#SEC21"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_23.html#SEC23"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_23.html#SEC23"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_19.html#SEC19"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_42.html#SEC42"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.3 TTF_SetFontStyle </H3>
+<!--docid::SEC22::-->
+<P>
+
+<CODE>void <B>TTF_SetFontStyle</B>(TTF_Font *<VAR>font</VAR>, int <VAR>style</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>font</VAR>
+<DD>The loaded font to set the style of.
+<DT><VAR>style</VAR>
+<DD>The style as a bitmask composed of the following masks:<BR>
+    <B>TTF_STYLE_BOLD</B><BR>
+    <B>TTF_STYLE_ITALIC</B><BR>
+    <B>TTF_STYLE_UNDERLINE</B><BR>
+    <B>TTF_STYLE_STRIKETHROUGH</B><BR>
+If no style is desired then use <B>TTF_STYLE_NORMAL</B>, which is the default.
+</DL>
+<P>
+
+Set the rendering style of the loaded <VAR>font</VAR>.<BR>
+<BR>
+<B>NOTE</B>: Passing a <B>NULL</B> <VAR>font</VAR> into this function will cause a segfault.<BR>
+<BR>
+<B>NOTE</B>: This will flush the internal cache of previously rendered glyphs, even if
+there is no change in style, so it may be best to check the current style using <CODE>TTF_GetFontStyle</CODE> first.<BR>
+<BR>
+<B>NOTE</B>: I've seen that <B>TTF_STYLE_UNDERLINE</B> does not work when using <CODE>TTF_RenderGlyph_*</CODE> functions, and that <B>TTF_STYLE_STRIKETHROUGH</B> looks like underlines on some glyphs when using <CODE>TTF_RenderGlyph_*</CODE> functions.  However both seem to work correctly when using the other full string <CODE>TTF_Render*</CODE> functions.  I've sent in a patch to fix this partially, however I do not alter the surface size and glyph metrics, so sometimes the underline or strikethrough may be outside of the generated surface, and thus not visible when blitted to the screen.  In this case, you should probably turn off these styles and draw your own strikethroughs and underlines.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// set the loaded font's style to bold italics
+//TTF_Font *font;
+TTF_SetFontStyle(font, TTF_STYLE_BOLD|TTF_STYLE_ITALIC);
+
+// render some text in bold italics...
+
+// set the loaded font's style back to normal
+TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_ttf_21.html#SEC21">3.3.2 TTF_GetFontStyle</A>,<BR>
+<A HREF="SDL_ttf_57.html#SEC57">5. Defines</A>
+</P><P>
+
+<A NAME="TTF_GetFontOutline"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

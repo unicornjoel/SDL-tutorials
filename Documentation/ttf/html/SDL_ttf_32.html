@@ -1,0 +1,85 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: TTF_FontLineSkip</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: TTF_FontLineSkip">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: TTF_FontLineSkip">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC32"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_31.html#SEC31"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_33.html#SEC33"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_21.html#SEC21"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_19.html#SEC19"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_42.html#SEC42"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.13 TTF_FontLineSkip </H3>
+<!--docid::SEC32::-->
+<P>
+
+<CODE>int <B>TTF_FontLineSkip</B>(const TTF_Font *<VAR>font</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>font</VAR>
+<DD>The loaded font to get the line skip height of.
+</DL>
+<P>
+
+Get the recommended pixel height of a rendered line of text of the loaded <VAR>font</VAR>.
+This is usually larger than the <CODE>TTF_FontHeight</CODE> of the <VAR>font</VAR>.<BR>
+<BR>
+<B>NOTE</B>: Passing a <B>NULL</B> <VAR>font</VAR> into this function will cause a segfault.
+</P><P>
+
+<B>Returns</B>: The maximum pixel height of all glyphs in the font.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// get the loaded font's line skip height
+//TTF_Font *font;
+
+printf("The font line skip is: %d\n", TTF_FontLineSkip(font));
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_ttf_29.html#SEC29">3.3.10 TTF_FontHeight</A>,<BR>
+<A HREF="SDL_ttf_30.html#SEC30">3.3.11 TTF_FontAscent</A>,<BR>
+<A HREF="SDL_ttf_31.html#SEC31">3.3.12 TTF_FontDescent</A>,<BR>
+<A HREF="SDL_ttf_38.html#SEC38">3.3.19 TTF_GlyphMetrics</A>
+</P><P>
+
+<A NAME="TTF_FontFaces"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

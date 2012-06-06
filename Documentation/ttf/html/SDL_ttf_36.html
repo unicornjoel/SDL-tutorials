@@ -1,0 +1,87 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: TTF_FontFaceStyleName</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: TTF_FontFaceStyleName">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: TTF_FontFaceStyleName">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC36"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_35.html#SEC35"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_37.html#SEC37"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_21.html#SEC21"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_19.html#SEC19"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_42.html#SEC42"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.17 TTF_FontFaceStyleName </H3>
+<!--docid::SEC36::-->
+<P>
+
+<CODE>char * <B>TTF_FontFaceStyleName</B>(const TTF_Font *<VAR>font</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>font</VAR>
+<DD>The loaded font to get the current face style name of.
+</DL>
+<P>
+
+Get the current font face style name from the loaded <VAR>font</VAR>.
+This function may return a <B>NULL</B> pointer, in which case the information
+is not available.
+<BR>
+<B>NOTE</B>: Passing a <B>NULL</B> <VAR>font</VAR> into this function will cause a segfault.
+</P><P>
+
+<B>Returns</B>: The current style name of of the face of the <VAR>font</VAR>, or <B>NULL</B> perhaps.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// get the loaded font's face style name
+//TTF_Font *font;
+
+char *stylename=TTF_FontFaceStyleName(font);
+if(stylename)
+    printf("The name of the face in the font is: %s\n", stylename);
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_ttf_33.html#SEC33">3.3.14 TTF_FontFaces</A>,<BR>
+<A HREF="SDL_ttf_34.html#SEC34">3.3.15 TTF_FontFaceIsFixedWidth</A>,<BR>
+<A HREF="SDL_ttf_35.html#SEC35">3.3.16 TTF_FontFaceFamilyName</A>
+</P><P>
+
+<A NAME="TTF_GlyphIsProvided"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

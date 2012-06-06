@@ -1,0 +1,80 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_image 1.2.8: IMG_Linked_Version</TITLE>
+
+<META NAME="description" CONTENT="SDL_image 1.2.8: IMG_Linked_Version">
+<META NAME="keywords" CONTENT="SDL_image 1.2.8: IMG_Linked_Version">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC7"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_6.html#SEC6"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_8.html#SEC8"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_5.html#SEC5"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_6.html#SEC6"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_10.html#SEC10"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_47.html#SEC47">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.1.1 IMG_Linked_Version </H3>
+<!--docid::SEC7::-->
+<P>
+
+<CODE>const SDL_version *<B>IMG_Linked_Version</B>()</CODE><BR>
+<CODE>void <B>SDL_IMAGE_VERSION</B>(SDL_version *compile_version)</CODE>
+</P><P>
+
+This works similar to <CODE>SDL_Linked_Version</CODE> and <B>SDL_VERSION</B>.<BR>
+Using these you can compare the runtime version to the version that you compiled with.<BR>
+These functions/macros do not require any library initialization calls before using them.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>SDL_version compile_version;
+const SDL_version *link_version=IMG_Linked_Version();
+SDL_IMAGE_VERSION(&#38;compile_version);
+printf("compiled with SDL_image version: %d.%d.%d\n", 
+        compile_version.major,
+        compile_version.minor,
+        compile_version.patch);
+printf("running with SDL_image version: %d.%d.%d\n", 
+        link_version-&#62;major,
+        link_version-&#62;minor,
+        link_version-&#62;patch);
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_image_8.html#SEC8">3.1.2 IMG_Init</A>
+</P><P>
+
+<A NAME="IMG_Init"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

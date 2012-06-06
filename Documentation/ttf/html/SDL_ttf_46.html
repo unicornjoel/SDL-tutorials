@@ -1,0 +1,97 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: TTF_RenderGlyph_Solid</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: TTF_RenderGlyph_Solid">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: TTF_RenderGlyph_Solid">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC46"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_45.html#SEC45"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_47.html#SEC47"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_47.html#SEC47"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_42.html#SEC42"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_55.html#SEC55"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.4.4 TTF_RenderGlyph_Solid </H3>
+<!--docid::SEC46::-->
+<P>
+
+<CODE>SDL_Surface *<B>TTF_RenderGlyph_Solid</B>(TTF_Font *<VAR>font</VAR>,
+				Uint16 <VAR>ch</VAR>, SDL_Color <VAR>fg</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>font</VAR>
+<DD>Font to render the glyph with.  A <B>NULL</B> pointer is not checked.
+<DT><VAR>text</VAR>
+<DD>The UNICODE character to render.
+<DT><VAR>fg</VAR>
+<DD>The color to render the glyph in.  This becomes colormap index 1.
+</DL>
+<P>
+
+Render the glyph for the UNICODE <VAR>ch</VAR> using <VAR>font</VAR> with <VAR>fg</VAR> color onto a new surface, using the <I>Solid</I> mode (see section <A HREF="SDL_ttf_42.html#SEC42">Solid</A>).  The caller (you!) is responsible for freeing any returned surface.<BR>
+<BR>
+<B>NOTE</B>: Passing a <B>NULL</B> <VAR>font</VAR> into this function will cause a segfault.<BR>
+</P><P>
+
+<B>Returns</B>: a pointer to a new SDL_Surface. <B>NULL</B> is returned on errors, such as when the glyph not available in the font.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// Render and cache all printable ASCII characters in solid black
+//SDL_Surface *screen;
+SDL_Color color={0,0,0};
+SDL_Surface *glyph_cache[128-20];
+Uint16 ch;
+for(ch=20; ch&#60;128; ++ch)
+    glyph_cache[ch-20]=TTF_RenderGlyph_Solid(font,ch,color);
+</pre></td></tr></table></td></tr></table>Combined with a cache of the glyph metrics (minx, miny, and advance),
+you might make a fast text rendering routine that prints directly to the screen,
+but with inaccurate kerning. (see section <A HREF="SDL_ttf_58.html#SEC58">Kerning</A>)
+</P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_ttf_50.html#SEC50">3.4.8 TTF_RenderGlyph_Shaded</A>,<BR>
+<A HREF="SDL_ttf_54.html#SEC54">3.4.12 TTF_RenderGlyph_Blended</A>,<BR>
+<A HREF="SDL_ttf_43.html#SEC43">3.4.1 TTF_RenderText_Solid</A>,<BR>
+<A HREF="SDL_ttf_44.html#SEC44">3.4.2 TTF_RenderUTF8_Solid</A>,<BR>
+<A HREF="SDL_ttf_46.html#SEC46">3.4.4 TTF_RenderGlyph_Solid</A>,<BR>
+<A HREF="SDL_ttf_38.html#SEC38">3.3.19 TTF_GlyphMetrics</A>
+</P><P>
+
+<A NAME="TTF_RenderText_Shaded"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

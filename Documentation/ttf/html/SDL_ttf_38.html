@@ -1,0 +1,186 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: TTF_GlyphMetrics</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: TTF_GlyphMetrics">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: TTF_GlyphMetrics">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC38"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_37.html#SEC37"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_39.html#SEC39"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_21.html#SEC21"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_19.html#SEC19"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_42.html#SEC42"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.19 TTF_GlyphMetrics </H3>
+<!--docid::SEC38::-->
+<P>
+
+<CODE>int <B>TTF_GlyphMetrics</B>(TTF_Font *<VAR>font</VAR>, Uint16 <VAR>ch</VAR>,
+				int *<VAR>minx</VAR>, int *<VAR>maxx</VAR>,
+				int *<VAR>miny</VAR>, int *<VAR>maxy</VAR>,
+				int *<VAR>advance</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>font</VAR>
+<DD>The loaded font from which to get the glyph metrics of <VAR>ch</VAR>.
+<DT><VAR>ch</VAR>
+<DD>the UNICODE char to get the glyph metrics for.
+<DT><VAR>minx</VAR>
+<DD>pointer to int to store the returned minimum X offset into, or <B>NULL</B> when no return value desired.
+<DT><VAR>maxx</VAR>
+<DD>pointer to int to store the returned maximum X offset into, or <B>NULL</B> when no return value desired.
+<DT><VAR>miny</VAR>
+<DD>pointer to int to store the returned minimum Y offset into, or <B>NULL</B> when no return value desired.
+<DT><VAR>maxy</VAR>
+<DD>pointer to int to store the returned maximum Y offset into, or <B>NULL</B> when no return value desired.
+<DT><VAR>advance</VAR>
+<DD>pointer to int to store the returned advance offset into, or <B>NULL</B> when no return value desired.
+</DL>
+<P>
+
+Get desired glyph metrics of the UNICODE chargiven in <VAR>ch</VAR> from the loaded <VAR>font</VAR>.
+<BR>
+<B>NOTE</B>: Passing a <B>NULL</B> <VAR>font</VAR> into this function will cause a segfault.
+</P><P>
+
+<B>Returns</B>: 0 on success, with all non-<B>NULL</B> parameters set to the glyph metric as appropriate. -1 on errors, such as when the glyph named by <VAR>ch</VAR> does not exist in the font.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// get the glyph metric for the letter 'g' in a loaded font
+//TTF_Font *font;
+int minx,maxx,miny,maxy,advance;
+if(TTF_GlyphMetrics(font,'g',&#38;minx,&#38;maxx,&#38;miny,&#38;maxy,&#38;advance)==-1)
+    printf("%s\n",TTF_GetError());
+else {
+    printf("minx    : %d\n",minx);
+    printf("maxx    : %d\n",maxx);
+    printf("miny    : %d\n",miny);
+    printf("maxy    : %d\n",maxy);
+    printf("advance : %d\n",advance);
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+This diagram shows the relationships between the values:<BR>
+<CENTER><IMG SRC="metrics.png" ALT="metrics"></CENTER>
+</P><P>
+
+Here's how the numbers look:<BR>
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>TTF_FontHeight       : 53
+TTF_FontAscent       : 38
+TTF_FontDescent      : -14
+TTF_FontLineSkip     : 55
+TTF_GlyphMetrics('g'):
+        minx=1
+        maxx=15
+        miny=-7
+        maxy=15
+        advance=16
+</pre></td></tr></table></td></tr></table></P><P>
+
+We see from the Line Skip that each line of text is 55 pixels high,
+including spacing for this font.<BR>
+The Ascent-Descent=52, so there seems to be 3 pixels worth of space between lines for this font.<BR>
+</P><P>
+
+Let's say we want to draw the surface of glyph 'g' (retrived via
+<A HREF="SDL_ttf_46.html#SEC46">3.4.4 TTF_RenderGlyph_Solid</A> or a similar function), at coordinates (X,Y) for the top left corner of the desired location.
+Here's the math using glyph metrics:<BR>
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>//SDL_Surface *glyph,*screen;
+SDL_Rect rect;
+int minx,maxy,advance;
+TTF_GlyphMetrics(font,'g',&#38;minx,NULL,NULL,&#38;maxy,&#38;advance);
+rect.x=X+minx;
+rect.y=Y+TTF_FontAscent(font)-maxy;
+SDL_BlitSurface(glyph,NULL,screen,&#38;rect);
+X+=advance;
+</pre></td></tr></table></td></tr></table></P><P>
+
+Let's say we want to draw the same glyph
+at coordinates (X,Y) for the origin (on the baseline) of the desired location.
+Here's the math using glyph metrics:<BR>
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>//TTF_Font *font;
+//SDL_Surface *glyph,*screen;
+SDL_Rect rect;
+int minx,maxy,advance;
+TTF_GlyphMetrics(font,'g',&#38;minx,NULL,NULL,&#38;maxy,&#38;advance);
+rect.x=X+minx;
+rect.y=Y-maxy;
+SDL_BlitSurface(glyph,NULL,screen,&#38;rect);
+X+=advance;
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>NOTE</B>: The only difference between these example is the <CODE>+TTF_FontAscent(font)</CODE> used in the <I>top-left corner</I> algorithm.
+<B>NOTE</B>: These examples assume that 'g' <I>is</I> present in the font!<BR>
+<B>NOTE</B>: In practice you may want to also subtract <CODE>TTF_GetFontOutline(font)</CODE> from your X and Y coordinates to keep the glyphs in the same place no matter what outline size is set.<BR>
+</P><P>
+
+See the web page at <A HREF="http://freetype.sourceforge.net/freetype2/docs/tutorial/step2.html">The FreeType2 Documentation Tutorial</A> for more.
+</P><P>
+
+Any glyph based rendering calculations will not result in accurate kerning between adjacent glyphs. (see section <A HREF="SDL_ttf_58.html#SEC58">Kerning</A>)
+</P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_ttf_29.html#SEC29">3.3.10 TTF_FontHeight</A>,<BR>
+<A HREF="SDL_ttf_30.html#SEC30">3.3.11 TTF_FontAscent</A>,<BR>
+<A HREF="SDL_ttf_31.html#SEC31">3.3.12 TTF_FontDescent</A>,<BR>
+<A HREF="SDL_ttf_32.html#SEC32">3.3.13 TTF_FontLineSkip</A>,<BR>
+<A HREF="SDL_ttf_39.html#SEC39">3.3.20 TTF_SizeText</A>,<BR>
+<A HREF="SDL_ttf_40.html#SEC40">3.3.21 TTF_SizeUTF8</A>,<BR>
+<A HREF="SDL_ttf_41.html#SEC41">3.3.22 TTF_SizeUNICODE</A>,<BR>
+<A HREF="SDL_ttf_37.html#SEC37">3.3.18 TTF_GlyphIsProvided</A>,<BR>
+<A HREF="SDL_ttf_23.html#SEC23">3.3.4 TTF_GetFontOutline</A>
+</P><P>
+
+<A NAME="TTF_SizeText"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_37.html#SEC37"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_39.html#SEC39"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_21.html#SEC21"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_19.html#SEC19"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_42.html#SEC42"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

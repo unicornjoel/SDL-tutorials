@@ -1,0 +1,132 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: Defines</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: Defines">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: Defines">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC57"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_56.html#SEC56"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_58.html#SEC58"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_58.html#SEC58"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_58.html#SEC58"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H1> 5. Defines </H1>
+<!--docid::SEC57::-->
+<P>
+
+<DL COMPACT>
+<A NAME="IDX2"></A>
+<DT><B>TTF_MAJOR_VERSION</B>
+<DD><CODE>2</CODE><BR>
+SDL_ttf library major number at compilation time.
+<A NAME="IDX3"></A>
+<DT><B>TTF_MINOR_VERSION</B>
+<DD><CODE>0</CODE><BR>
+SDL_ttf library minor number at compilation time.
+<DT><B>TTF_PATCHLEVEL</B>
+<DD><A NAME="IDX4"></A>
+<CODE>10</CODE><BR>
+SDL_ttf library patch level at compilation time.
+<DT><B>UNICODE_BOM_NATIVE</B>
+<DD><A NAME="IDX5"></A>
+<CODE>0xFEFF</CODE><BR>
+This allows you to switch byte-order of UNICODE text data to native order, meaning the mode of your CPU.  This is meant to be used in a UNICODE string that you are using with the SDL_ttf API.
+<DT><B>UNICODE_BOM_SWAPPED</B>
+<DD><A NAME="IDX6"></A>
+<CODE>0xFFFE</CODE><BR>
+This allows you to switch byte-order of UNICODE text data to swapped order, meaning the reversed mode of your CPU.  So if your CPU is LSB, then the data will be interpretted as MSB.  This is meant to be used in a UNICODE string that you are using with the SDL_ttf API.
+<DT><B>TTF_STYLE_NORMAL</B>
+<DD><A NAME="IDX7"></A>
+<CODE>0x00</CODE><BR>
+Used to indicate regular, normal, plain rendering style.
+<DT><B>TTF_STYLE_BOLD</B>
+<DD><A NAME="IDX8"></A>
+<CODE>0x01</CODE><BR>
+Used to indicate bold rendering style.  This is used in a bitmask along with other styles.
+<DT><B>TTF_STYLE_ITALIC</B>
+<DD><A NAME="IDX9"></A>
+<CODE>0x02</CODE><BR>
+Used to indicate italicized rendering style.  This is used in a bitmask along with other styles.
+<DT><B>TTF_STYLE_UNDERLINE</B>
+<DD><A NAME="IDX10"></A>
+<CODE>0x04</CODE><BR>
+Used to indicate underlined rendering style.  This is used in a bitmask along with other styles.
+<DT><B>TTF_STYLE_STRIKETHROUGH</B>
+<DD><A NAME="IDX11"></A>
+<CODE>0x08</CODE><BR>
+Used to indicate strikethrough rendering style.  This is used in a bitmask along with other styles.
+<DT><B>TTF_HINTING_NORMAL</B>
+<DD><A NAME="IDX12"></A>
+<CODE>0</CODE><BR>
+Used to indicate set hinting type to normal.<BR>
+This corresponds to the default hinting algorithm, optimized for standard gray-level rendering
+<DT><B>TTF_HINTING_LIGHT</B>
+<DD><A NAME="IDX13"></A>
+<CODE>0</CODE><BR>
+Used to indicate set hinting type to light.<BR>
+A lighter hinting algorithm for non-monochrome modes. Many generated glyphs are more fuzzy but better resemble its original shape. A bit like rendering on Mac OS X.
+<DT><B>TTF_HINTING_MONO</B>
+<DD><A NAME="IDX14"></A>
+<CODE>0</CODE><BR>
+Used to indicate set hinting type to monochrome.<BR>
+Strong hinting algorithm that should only be used for monochrome output. The result is probably unpleasant if the glyph is rendered in non-monochrome modes.
+<DT><B>TTF_HINTING_NONE</B>
+<DD><A NAME="IDX15"></A>
+<CODE>0</CODE><BR>
+Used to indicate set hinting type to none.<BR>
+No hinting is used so the font may become very blurry or messy at smaller sizes.
+</DL>
+<P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_ttf_58.html#SEC58">6. Glossary</A>,
+</P><P>
+
+<A NAME="Glossary"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_56.html#SEC56"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_58.html#SEC58"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_58.html#SEC58"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_58.html#SEC58"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

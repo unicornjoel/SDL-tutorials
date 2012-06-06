@@ -1,0 +1,84 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_image 1.2.8: IMG_isCUR</TITLE>
+
+<META NAME="description" CONTENT="SDL_image 1.2.8: IMG_isCUR">
+<META NAME="keywords" CONTENT="SDL_image 1.2.8: IMG_isCUR">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC30"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_29.html#SEC29"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_31.html#SEC31"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_43.html#SEC43"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_29.html#SEC29"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_43.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_47.html#SEC47">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.1 IMG_isCUR </H3>
+<!--docid::SEC30::-->
+<P>
+
+<CODE>int <B>IMG_isCUR</B>(SDL_RWops *<VAR>src</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>src</VAR>
+<DD><P>
+
+</DL>
+<P>
+
+If the BMP format is supported, then the image data is tested to see if it is readable as a CUR, otherwise it returns false (Zero).
+</P><P>
+
+<B>Returns</B>: 1 if the image is a CUR and the BMP format support is compiled into SDL_image.  0 is returned otherwise.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// Test sample.cur to see if it is a CUR
+SDL_RWops *rwop;
+rwop=SDL_RWFromFile("sample.cur", "rb");
+if(IMG_isCUR(rwop))
+	printf("sample.cur is a CUR file.\n");
+else
+	printf("sample.cur is not a CUR file, or BMP support is not available.\n");
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_image_14.html#SEC14">3.2.4 IMG_LoadCUR_RW</A>,
+<A HREF="SDL_image_13.html#SEC13">3.2.3 IMG_LoadTyped_RW</A>
+</P><P>
+
+<A NAME="IMG_isICO"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

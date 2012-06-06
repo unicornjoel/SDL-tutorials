@@ -1,0 +1,105 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: TTF_RenderUTF8_Blended</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: TTF_RenderUTF8_Blended">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: TTF_RenderUTF8_Blended">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC52"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_51.html#SEC51"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_53.html#SEC53"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_44.html#SEC44"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_42.html#SEC42"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_55.html#SEC55"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.4.10 TTF_RenderUTF8_Blended </H3>
+<!--docid::SEC52::-->
+<P>
+
+<CODE>SDL_Surface *<B>TTF_RenderUTF8_Blended</B>(TTF_Font *<VAR>font</VAR>,
+				const char *<VAR>text</VAR>, SDL_Color <VAR>fg</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>font</VAR>
+<DD>Font to render the text with.  A <B>NULL</B> pointer is not checked.
+<DT><VAR>text</VAR>
+<DD>The UTF8 null terminated string to render.
+<DT><VAR>fg</VAR>
+<DD>The color to render the text in.  Pixels are blended between transparent and
+this color to draw the antialiased glyphs.
+</DL>
+<P>
+
+Render the UTF8 encoded <VAR>text</VAR> using <VAR>font</VAR> with <VAR>fg</VAR> color onto a new surface, using the <I>Blended</I> mode (see section <A HREF="SDL_ttf_42.html#SEC42">Blended</A>).  The caller (you!) is responsible for freeing any returned surface.<BR>
+<BR>
+<B>NOTE</B>: Passing a <B>NULL</B> <VAR>font</VAR> into this function will cause a segfault.<BR>
+<B>NOTE</B>: Passing a <B>NULL</B> <VAR>text</VAR> into this function will result in undefined behavior.<BR>
+</P><P>
+
+<B>Returns</B>: a pointer to a new SDL_Surface. <B>NULL</B> is returned on errors.
+<BR>
+</P><P>
+
+Note that this example uses the same text as in the LATIN1 example, that is
+because plain ASCII is UTF8 compatible.
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// Render some UTF8 text in blended black to a new surface
+// then blit to the upper left of the screen
+// then free the text surface
+//SDL_Surface *screen;
+SDL_Color color={0,0,0};
+SDL_Surface *text_surface;
+if(!(text_surface=TTF_RenderUTF8_Blended(font,"Hello World!",color))) {
+    //handle error here, perhaps print TTF_GetError at least
+} else {
+    SDL_BlitSurface(text_surface,NULL,screen,NULL);
+    //perhaps we can reuse it, but I assume not for simplicity.
+    SDL_FreeSurface(text_surface);
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_ttf_40.html#SEC40">3.3.21 TTF_SizeUTF8</A>,<BR>
+<A HREF="SDL_ttf_51.html#SEC51">3.4.9 TTF_RenderText_Blended</A>,<BR>
+<A HREF="SDL_ttf_53.html#SEC53">3.4.11 TTF_RenderUNICODE_Blended</A>,<BR>
+<A HREF="SDL_ttf_54.html#SEC54">3.4.12 TTF_RenderGlyph_Blended</A>,<BR>
+<A HREF="SDL_ttf_44.html#SEC44">3.4.2 TTF_RenderUTF8_Solid</A>,<BR>
+<A HREF="SDL_ttf_48.html#SEC48">3.4.6 TTF_RenderUTF8_Shaded</A>
+</P><P>
+
+<A NAME="TTF_RenderUNICODE_Blended"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: TTF_OpenFont</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: TTF_OpenFont">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: TTF_OpenFont">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC14"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_13.html#SEC13"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_15.html#SEC15"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_19.html#SEC19"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_13.html#SEC13"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_19.html#SEC19"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.2.1 TTF_OpenFont </H3>
+<!--docid::SEC14::-->
+<P>
+
+<CODE>TTF_Font *<B>TTF_OpenFont</B>(const char *<VAR>file</VAR>, int <VAR>ptsize</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>file</VAR>
+<DD>File name to load font from.
+<DT><VAR>ptsize</VAR>
+<DD>Point size (based on 72DPI) to load font as.
+This basically translates to pixel height.
+</DL>
+<P>
+
+Load <VAR>file</VAR> for use as a font, at <VAR>ptsize</VAR> size.  This is actually <CODE>TTF_OpenFontIndex(<VAR>file</VAR>, <VAR>ptsize</VAR>, 0)</CODE>.  This can load TTF and FON files.
+</P><P>
+
+<B>Returns</B>: a pointer to the font as a <CODE>TTF_Font</CODE>.  <B>NULL</B> is returned on errors.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// load font.ttf at size 16 into font
+TTF_Font *font;
+font=TTF_OpenFont("font.ttf", 16);
+if(!font) {
+    printf("TTF_OpenFont: %s\n", TTF_GetError());
+    // handle error
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_ttf_16.html#SEC16">3.2.3 TTF_OpenFontIndex</A>,
+<A HREF="SDL_ttf_15.html#SEC15">3.2.2 TTF_OpenFontRW</A>,
+<A HREF="SDL_ttf_18.html#SEC18">3.2.5 TTF_CloseFont</A>
+</P><P>
+
+<A NAME="TTF_OpenFontRW"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

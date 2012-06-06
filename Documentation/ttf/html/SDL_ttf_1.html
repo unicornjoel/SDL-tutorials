@@ -1,0 +1,123 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: Overview</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: Overview">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: Overview">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC1"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_2.html#SEC2"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_2.html#SEC2"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<A NAME="Overview"></A>
+<H1> 1. Overview </H1>
+<!--docid::SEC1::-->
+<P>
+
+<center>
+ <B>A Little Bit About Me</B>
+</center>
+</P><P>
+
+I am currently, as I write this document, a programmer for Raytheon.  There I do all sorts of communications, network, GUI, and other general programming tasks in C/C++ on the Solaris and sometimes Linux Operating Systems.  I've used SDL_ttf as one of the many methods of putting text on my SDL applications, and use it in my own SDL GUI code as well.  While this document doesn't explain how and where to get fonts to use, it will explain how to use them with SDL_ttf.
+</P><P>
+
+Feel free to contact me: <A HREF="mailto:JonathanCAtkins@gmail.com">JonathanCAtkins@gmail.com</A><BR>
+</P><P>
+
+The latest version of this library is available from:<BR>
+<A HREF="http://www.libsdl.org/projects/SDL_ttf/">SDL_ttf Homepage</A>
+</P><P>
+
+I am also usually on IRC at irc.freenode.net in the #SDL channel as LIM
+</P><P>
+
+<A NAME="IDX1"></A>
+</P><P>
+
+This is the README in the SDL_ttf source archive.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+This library is a wrapper around the excellent FreeType 1.2 library,
+available at:
+    <A HREF="http://www.freetype.org/">Freetype Homepage</A>
+</P><P>
+
+WARNING: There may be patent issues with using the FreeType library.
+Check the FreeType website for up-to-date details.
+</P><P>
+
+This library allows you to use TrueType fonts to render text in SDL
+applications.
+</P><P>
+
+To make the library, first install the FreeType library, then type
+'make' to build the SDL truetype library and 'make all' to build
+the demo application.
+</P><P>
+
+Be careful when including fonts with your application, as many of them
+are copyrighted.  The Microsoft fonts, for example, are not freely 
+redistributable and even the free "web" fonts they provide are only 
+redistributable in their special executable installer form (May 1998).
+There are plenty of freeware and shareware fonts available on the Internet
+though, which may suit your purposes.
+</P><P>
+
+Please see the file "COPYING" for license information for this library.
+</P><P>
+
+Enjoy!
+    -Sam Lantinga <A HREF="mailto:slouken@devolution.com">slouken@devolution.com</A>       (5/1/98)
+</td></tr></table></P><P>
+
+<A NAME="Getting Started"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_2.html#SEC2"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_2.html#SEC2"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

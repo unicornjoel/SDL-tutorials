@@ -1,0 +1,99 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: TTF_SizeUNICODE</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: TTF_SizeUNICODE">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: TTF_SizeUNICODE">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC41"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_40.html#SEC40"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_42.html#SEC42"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_22.html#SEC22"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_19.html#SEC19"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_42.html#SEC42"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.22 TTF_SizeUNICODE </H3>
+<!--docid::SEC41::-->
+<P>
+
+<CODE>int <B>TTF_SizeUNICODE</B>(TTF_Font *<VAR>font</VAR>,
+				const Unit16 *<VAR>text</VAR>, int *<VAR>w</VAR>, int *<VAR>h</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>font</VAR>
+<DD>The loaded font to use to calculate the size of the string with.
+<DT><VAR>text</VAR>
+<DD>The UNICODE null terminated string to size up.
+<DT><VAR>w</VAR>
+<DD>pointer to int in which to fill the text width, or <B>NULL</B> for no desired return value.
+<DT><VAR>h</VAR>
+<DD>pointer to int in which to fill the text height, or <B>NULL</B> for no desired return value.
+</DL>
+<P>
+
+Calculate the resulting surface size of the UNICODE encoded <VAR>text</VAR> rendered using <VAR>font</VAR>.  No actual rendering is done, however correct kerning is done to get the actual width.  The height returned in <VAR>h</VAR> is the same as you can get using <A HREF="SDL_ttf_29.html#SEC29">3.3.10 TTF_FontHeight</A>.
+<BR>
+<B>NOTE</B>: Passing a <B>NULL</B> <VAR>font</VAR> into this function will cause a segfault.
+<B>NOTE</B>: Passing a <B>NULL</B> <VAR>text</VAR> into this function will result in undefined behavior.
+</P><P>
+
+<B>Returns</B>: 0 on success with the ints pointed to by <VAR>w</VAR> and <VAR>h</VAR> set as appropriate, if they are not <B>NULL</B>.  -1 is returned on errors, such as a glyph in the string not being found.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// get the width and height of a string as it would be rendered in a loaded font
+//TTF_Font *font;
+int w,h;
+Uint16 text[]={'H','e','l','l','o',' ',
+               'W','o','r','l','d','!'};
+if(TTF_SizeUNICODE(font,text,&#38;w,&#38;h)) {
+    // perhaps print the current TTF_GetError(), the string can't be rendered...
+} else {
+    printf("width=%d height=%d\n",w,h);
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_ttf_39.html#SEC39">3.3.20 TTF_SizeText</A>,<BR>
+<A HREF="SDL_ttf_40.html#SEC40">3.3.21 TTF_SizeUTF8</A>,<BR>
+<A HREF="SDL_ttf_45.html#SEC45">3.4.3 TTF_RenderUNICODE_Solid</A>,<BR>
+<A HREF="SDL_ttf_49.html#SEC49">3.4.7 TTF_RenderUNICODE_Shaded</A>,<BR>
+<A HREF="SDL_ttf_53.html#SEC53">3.4.11 TTF_RenderUNICODE_Blended</A>
+</P><P>
+
+<A NAME="Render"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

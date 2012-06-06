@@ -1,0 +1,91 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_image 1.2.8: Loading</TITLE>
+
+<META NAME="description" CONTENT="SDL_image 1.2.8: Loading">
+<META NAME="keywords" CONTENT="SDL_image 1.2.8: Loading">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC10"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_9.html#SEC9"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_11.html#SEC11"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_29.html#SEC29"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_5.html#SEC5"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_29.html#SEC29"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_47.html#SEC47">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 3.2 Loading </H2>
+<!--docid::SEC10::-->
+<P>
+
+These functions create an <TT>SDL_Surface</TT> from image data either from a file, or
+SDL_RWop, or from an array of data in memory.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+</TABLE>
+<B>Automagic&nbsp;Loading</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_11.html#SEC11">3.2.1 IMG_Load</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load from a file</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_12.html#SEC12">3.2.2 IMG_Load_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_13.html#SEC13">3.2.3 IMG_LoadTyped_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load more format specifically with a SDL_RWop</TD></TR>
+</TABLE>
+<B>Specific&nbsp;Loaders</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_16.html#SEC16">3.2.6 IMG_LoadBMP_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load BMP using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_14.html#SEC14">3.2.4 IMG_LoadCUR_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load CUR using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_21.html#SEC21">3.2.11 IMG_LoadGIF_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load GIF using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_15.html#SEC15">3.2.5 IMG_LoadICO_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load ICO using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_22.html#SEC22">3.2.12 IMG_LoadJPG_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load JPG using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_26.html#SEC26">3.2.16 IMG_LoadLBM_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load LBM using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_20.html#SEC20">3.2.10 IMG_LoadPCX_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load PCX using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_24.html#SEC24">3.2.14 IMG_LoadPNG_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load PNG using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_17.html#SEC17">3.2.7 IMG_LoadPNM_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load PNM using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_25.html#SEC25">3.2.15 IMG_LoadTGA_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load TGA using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_23.html#SEC23">3.2.13 IMG_LoadTIF_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load TIF using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_19.html#SEC19">3.2.9 IMG_LoadXCF_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load XCF using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_18.html#SEC18">3.2.8 IMG_LoadXPM_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load XPM using a SDL_RWop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_27.html#SEC27">3.2.17 IMG_LoadXV_RW</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load XV  using a SDL_RWop</TD></TR>
+</TABLE>
+<B>Array&nbsp;Loaders</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_image_28.html#SEC28">3.2.18 IMG_ReadXPMFromArray</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load XPM from compiled XPM data</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="IMG_Load"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

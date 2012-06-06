@@ -1,0 +1,120 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 4  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_ttf 2.0.10: Glossary</TITLE>
+
+<META NAME="description" CONTENT="SDL_ttf 2.0.10: Glossary">
+<META NAME="keywords" CONTENT="SDL_ttf 2.0.10: Glossary">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC58"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_57.html#SEC57"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H1> 6. Glossary </H1>
+<!--docid::SEC58::-->
+<P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<EM>Byte Order</EM>
+<A NAME="IDX16"></A>
+<A NAME="IDX17"></A>
+<A NAME="IDX18"></A>
+<A NAME="IDX19"></A>
+<A NAME="IDX20"></A>
+This all has to do with how data larger than a byte is actually stored in
+memory.  The CPU expects 16bit and 32bit, and larger, data to be ordered in one
+of the two ways listed below.  SDL has macros which you can use to detemine
+which endianness your program will be using.
+</P><P>
+
+<EM>Big-Endian</EM>(<FONT SIZE="-1">MSB</FONT>) means the most significant byte comes first in
+storage.  Sparc and Motorola 68k based chips are MSB ordered.<BR>
+(SDL defines this as <B>SDL_BYTEORDER==SDL_BIG_ENDIAN</B>)
+</P><P>
+
+<EM>Little-Endian</EM>(<FONT SIZE="-1">LSB</FONT>) is stored in the opposite order, with the
+least significant byte first in memory.  Intel and AMD are two LSB machines.<BR>
+(SDL defines this as <B>SDL_BYTEORDER==SDL_LIL_ENDIAN</B>)
+</td></tr></table></P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<EM>LATIN1</EM>
+<A NAME="IDX21"></A>
+<A NAME="IDX22"></A>
+Latin-1 is an extension of ASCII, where ASCII only defines characters 0 through
+127.
+Latin-1 continues and adds more common international symbols to define through
+character 255.<BR>
+</P><P>
+
+<A HREF="http://www.unicode.org/charts/PDF/U0080.pdf">ISO 8859-1 (Latin-1) Unicode Table (pdf)</A>
+</td></tr></table><CENTER><IMG SRC="latin-1.png" ALT="latin-1"></CENTER>
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<EM>Hinting</EM>
+<A NAME="IDX23"></A>
+Font hinting is the use of mathematical instructions to adjust the display of an outline font so that it lines up with a rasterized grid. At small screen sizes, with or without antialiasing, hinting is critical for producing a clear, legible text for human readers.
+</td></tr></table></P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<EM>Kerning</EM>
+<A NAME="IDX24"></A>
+Kerning is the process of spacing adjacent characters apart depending on the
+actual two adjacent characters.  This allows some characters to be closer to
+each other than others.  When kerning is not used, such as when using the glyph
+metrics advance value, the characters will be spaced out at a constant size
+that accomodates all pairs of adjacent characters.  This would be the maximum
+space between characters needed.  There's currently no method to retrieve the
+kerning for a pair of characters from SDL_ttf, However correct kerning will be
+applied when a string of text is rendered instead of individual glyphs.
+</td></tr></table></P><P>
+
+<A NAME="Index"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_57.html#SEC57"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_59.html#SEC59">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_ttf_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 4  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

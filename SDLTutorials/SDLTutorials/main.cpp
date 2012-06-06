@@ -1,6 +1,7 @@
 //Include the SDL functions and datatypes
 #include "SDL.h"
 #include "SDL_image.h"
+#include "SDL_ttf.h"
 #include <string>
 
 //Attributes for the screen
@@ -9,15 +10,18 @@ const int SCREEN_HEIGHT = 480;
 const int SCREEN_BPP = 32;
 
 //Surfaces to be used in the program
-SDL_Surface *dots = NULL;
+SDL_Surface *background = NULL;
+SDL_Surface *message = NULL;
 SDL_Surface *screen = NULL;
 
 //The event structure that will be used
 SDL_Event sevent;
 
-//The portions of the sprite map to be blitted
-SDL_Rect clip[ 4 ];
+//The font that's going to be used
+TTF_Font *font = NULL;
 
+//The colour of the font
+SDL_Color textColour = {225, 225, 225 };
 
 SDL_Surface *load_image( std::string filename )
 {
@@ -84,8 +88,14 @@ bool init()
 		return false;
 	}
 
+	//Initialize SDL_ttf
+	if( TTF_Init() == -1 )
+	{
+		return false;
+	}
+
 	//Set window caption
-	SDL_WM_SetCaption( "Event test", NULL );
+	SDL_WM_SetCaption( "TTF test", NULL );
 
 	//If everything initialized fine
 	return true;
@@ -94,10 +104,19 @@ bool init()
 bool load_files()
 {
 	//Load the images
-	dots = load_image( "dots.png" );
+	background = load_image( "background.png" );
+
+	//Open the font
+	font = TTF_OpenFont( "lazy.ttf", 28 );
 
 	//If there was an error loading the files
-	if( dots == NULL )
+	if( background == NULL )
+	{
+		return false;
+	}
+
+	//If there was an error loading the files
+	if( font == NULL )
 	{
 		return false;
 	}
@@ -109,7 +128,14 @@ bool load_files()
 void clean_up()
 {
 	//Free the image
-	SDL_FreeSurface( dots );
+	SDL_FreeSurface( background );
+	SDL_FreeSurface( message );
+
+	//Close the font that was used
+	TTF_CloseFont(font);
+
+	//Quit TTF
+	TTF_Quit();
 
 	//Quit SDL
 	SDL_Quit();
@@ -132,34 +158,18 @@ int main( int argc, char* args[] )
 		return 2;
 	}
 
-	clip[0].x = 0;
-	clip[0].y = 0;
-	clip[0].w = 100;
-	clip[0].h = 100;
+	//Render the text
+	message = TTF_RenderText_Solid( font, "The quick brown fox jumps over the lazy dog", textColour );
 
-	clip[1].x = 100;
-	clip[1].y = 0;
-	clip[1].w = 100;
-	clip[1].h = 100;
-
-	clip[2].x = 0;
-	clip[2].y = 100;
-	clip[2].w = 100;
-	clip[2].h = 100;
-
-	clip[3].x = 100;
-	clip[3].y = 100;
-	clip[3].w = 100;
-	clip[3].h = 100;
-
-	//Fill the entire screen white
-	SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ));
+	//If there was an error in rendering the text
+	if( message == NULL )
+	{
+		return 1;
+	}
 
 	//Apply the images to the screen
-	apply_surface( 0, 0, dots, screen, &clip[0]);
-	apply_surface( 540, 0, dots, screen, &clip[1]);
-	apply_surface( 0, 380, dots, screen, &clip[2]);
-	apply_surface( 540, 380, dots, screen, &clip[3]);
+	apply_surface( 0, 0, background, screen);
+	apply_surface( 0, 150, message, screen);
 
 	//Update screen
 	if( SDL_Flip ( screen ) == -1 )
