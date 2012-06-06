@@ -9,12 +9,15 @@ const int SCREEN_HEIGHT = 480;
 const int SCREEN_BPP = 32;
 
 //Surfaces to be used in the program
-SDL_Surface *background = NULL;
-SDL_Surface *foo = NULL;
+SDL_Surface *dots = NULL;
 SDL_Surface *screen = NULL;
 
 //The event structure that will be used
 SDL_Event sevent;
+
+//The portions of the sprite map to be blitted
+SDL_Rect clip[ 4 ];
+
 
 SDL_Surface *load_image( std::string filename )
 {
@@ -51,7 +54,7 @@ SDL_Surface *load_image( std::string filename )
 	return optimizedImage;
 }
 
-void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination)
+void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip = NULL )
 {
 	//Make a temporary rectancle to hold the offsets
 	SDL_Rect offset;
@@ -61,7 +64,7 @@ void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination)
 	offset.y = y;
 
 	//Blit the surface
-	SDL_BlitSurface( source, NULL, destination, &offset );
+	SDL_BlitSurface( source, clip, destination, &offset );
 }
 
 bool init()
@@ -91,11 +94,10 @@ bool init()
 bool load_files()
 {
 	//Load the images
-	background = load_image( "background.png" );
-	foo = load_image( "foo.png" );
+	dots = load_image( "dots.png" );
 
 	//If there was an error loading the files
-	if((foo == NULL ) || (background == NULL ))
+	if( dots == NULL )
 	{
 		return false;
 	}
@@ -107,8 +109,7 @@ bool load_files()
 void clean_up()
 {
 	//Free the image
-	SDL_FreeSurface( foo );
-	SDL_FreeSurface( background );
+	SDL_FreeSurface( dots );
 
 	//Quit SDL
 	SDL_Quit();
@@ -128,17 +129,42 @@ int main( int argc, char* args[] )
 	//Load the files
 	if( load_files() == false )
 	{
-		return 1;
+		return 2;
 	}
 
-	//Apply the surface to the screen
-	apply_surface( 0, 0, background, screen );
-	apply_surface( 240, 190, foo, screen );
+	clip[0].x = 0;
+	clip[0].y = 0;
+	clip[0].w = 100;
+	clip[0].h = 100;
+
+	clip[1].x = 100;
+	clip[1].y = 0;
+	clip[1].w = 100;
+	clip[1].h = 100;
+
+	clip[2].x = 0;
+	clip[2].y = 100;
+	clip[2].w = 100;
+	clip[2].h = 100;
+
+	clip[3].x = 100;
+	clip[3].y = 100;
+	clip[3].w = 100;
+	clip[3].h = 100;
+
+	//Fill the entire screen white
+	SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ));
+
+	//Apply the images to the screen
+	apply_surface( 0, 0, dots, screen, &clip[0]);
+	apply_surface( 540, 0, dots, screen, &clip[1]);
+	apply_surface( 0, 380, dots, screen, &clip[2]);
+	apply_surface( 540, 380, dots, screen, &clip[3]);
 
 	//Update screen
 	if( SDL_Flip ( screen ) == -1 )
 	{
-		return 1;
+		return 3;
 	}
 
 	//While the user hasn't quit
