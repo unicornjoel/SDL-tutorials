@@ -9,7 +9,8 @@ const int SCREEN_HEIGHT = 480;
 const int SCREEN_BPP = 32;
 
 //Surfaces to be used in the program
-SDL_Surface *image = NULL;
+SDL_Surface *background = NULL;
+SDL_Surface *foo = NULL;
 SDL_Surface *screen = NULL;
 
 //The event structure that will be used
@@ -34,6 +35,16 @@ SDL_Surface *load_image( std::string filename )
 
 		//Free the old surface
 		SDL_FreeSurface( loadedImage );
+	}
+
+	//If the image was optimized with no problems
+	if( optimizedImage != NULL )
+	{
+		//Map the colour key
+		Uint32 colourkey = SDL_MapRGB( optimizedImage->format, 0, 0xFF, 0xFF );
+
+		//Set all pixels of that colour to be transparent
+		SDL_SetColorKey( optimizedImage, SDL_SRCCOLORKEY, colourkey );
 	}
 
 	//Return the optimized image
@@ -79,11 +90,12 @@ bool init()
 
 bool load_files()
 {
-	//Load the image
-	image = load_image( "x.png" );
+	//Load the images
+	background = load_image( "background.png" );
+	foo = load_image( "foo.png" );
 
 	//If there was an error loading the files
-	if( image == NULL )
+	if((foo == NULL ) || (background == NULL ))
 	{
 		return false;
 	}
@@ -95,7 +107,8 @@ bool load_files()
 void clean_up()
 {
 	//Free the image
-	SDL_FreeSurface( image );
+	SDL_FreeSurface( foo );
+	SDL_FreeSurface( background );
 
 	//Quit SDL
 	SDL_Quit();
@@ -119,7 +132,8 @@ int main( int argc, char* args[] )
 	}
 
 	//Apply the surface to the screen
-	apply_surface( 0, 0, image, screen );
+	apply_surface( 0, 0, background, screen );
+	apply_surface( 240, 190, foo, screen );
 
 	//Update screen
 	if( SDL_Flip ( screen ) == -1 )
