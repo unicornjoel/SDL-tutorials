@@ -13,6 +13,10 @@ const int SCREEN_BPP = 32;
 SDL_Surface *background = NULL;
 SDL_Surface *message = NULL;
 SDL_Surface *screen = NULL;
+SDL_Surface *upMessage = NULL;
+SDL_Surface *downMessage = NULL;
+SDL_Surface *rightMessage = NULL;
+SDL_Surface *leftMessage = NULL;
 
 //The event structure that will be used
 SDL_Event sevent;
@@ -159,22 +163,36 @@ int main( int argc, char* args[] )
 	}
 
 	//Render the text
-	message = TTF_RenderText_Solid( font, "The quick brown fox jumps over the lazy dog", textColour );
+	upMessage = TTF_RenderText_Solid( font, "Up was pressed", textColour );
+	downMessage = TTF_RenderText_Solid( font, "Down was pressed", textColour );
+	rightMessage = TTF_RenderText_Solid( font, "Right was pressed", textColour );
+	leftMessage = TTF_RenderText_Solid( font, "Left was pressed", textColour );
 
 	//If there was an error in rendering the text
-	if( message == NULL )
+	if( upMessage == NULL )
 	{
-		return 1;
+		return 3;
+	}
+	if( downMessage == NULL )
+	{
+		return 4;
+	}
+	if( rightMessage == NULL )
+	{
+		return 5;
+	}
+	if( leftMessage == NULL )
+	{
+		return 6;
 	}
 
 	//Apply the images to the screen
 	apply_surface( 0, 0, background, screen);
-	apply_surface( 0, 150, message, screen);
 
 	//Update screen
 	if( SDL_Flip ( screen ) == -1 )
 	{
-		return 3;
+		return 7;
 	}
 
 	//While the user hasn't quit
@@ -183,12 +201,36 @@ int main( int argc, char* args[] )
 		//While there's an event to handle
 		while( SDL_PollEvent( &sevent ) )
 		{
+			if( sevent.type == SDL_KEYDOWN )
+			{
+				switch( sevent.key.keysym.sym )
+				{
+				case SDLK_UP: message = upMessage; break;
+				case SDLK_DOWN: message = downMessage; break;
+				case SDLK_RIGHT: message = rightMessage; break;
+				case SDLK_LEFT: message = leftMessage; break;
+				}
+			}
 			//If the user has Xed out the window
 			if( sevent.type == SDL_QUIT )
 			{
 				//Quit the program
 				quit = true;
 			}
+		}
+		if( message != NULL )
+		{
+			//Apply the surfaces to the screen
+			apply_surface( 0, 0, background, screen );
+			apply_surface( ( SCREEN_WIDTH - message->w )/2, (SCREEN_HEIGHT - message->h )/2, message, screen);
+
+			//Null the surface pointer
+			message = NULL;
+		}
+
+		if( SDL_Flip ( screen ) == -1 )
+		{
+			return 8;
 		}
 	}
 
