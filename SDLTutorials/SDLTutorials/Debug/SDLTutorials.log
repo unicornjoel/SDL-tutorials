@@ -1,7 +1,7 @@
-﻿Build started 22/06/2012 2:34:54 PM.
+﻿Build started 08/07/2012 2:37:39 PM.
      1>Project "C:\cygwin\home\Erin Turnbull\Joel-Repo\SDL-tutorial\SDLTutorials\SDLTutorials\SDLTutorials.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Debug\SDLTutorials.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Debug\SDLTutorials.unsuccessfulbuild".
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
@@ -18,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:07.26
+Time Elapsed 00:00:09.11
